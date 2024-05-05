@@ -3,11 +3,16 @@ import Index from "./pages/Index"
 import Login from "./pages/Login"
 import SignUp from "./pages/SignUp"
 import Layout from "./Layout"
+import axios from "axios"
+import { UserContextProvider } from "./UserContext"
+
 
 function App() {
   
+  axios.defaults.baseURL = 'http://localhost:3000';
 
   return (
+    <UserContextProvider>
     <Routes>
     <Route path="/" element={<Layout />}>
       
@@ -17,6 +22,7 @@ function App() {
       
     </Route>
   </Routes>
+  </UserContextProvider>
   )
 }
 

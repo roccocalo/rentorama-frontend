@@ -1,15 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Route, Routes } from "react-router-dom"
+import Index from "./pages/Index"
+import Login from "./pages/Login"
+import SignUp from "./pages/SignUp"
+import Layout from "./Layout"
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
-    <>
-      <p className='font-medium text-2xl text-fuchsia-700'>tailwind css test</p>
-    </>
+    <Routes>
+    <Route path="/" element={<Layout />}>
+      
+        <Route path="" element={<Index />}/>
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<SignUp />} />
+      
+    </Route>
+  </Routes>
   )
 }
 
